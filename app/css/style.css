@@ -5,6 +5,7 @@ body {
 
 .main-header {
     display: flex;
+    justify-content: space-between;
     padding-top: 30px;
 }
 

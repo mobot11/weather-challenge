@@ -5,6 +5,7 @@ export default class Header extends Component {
 		return (
 			<header className='main-header'>
 				<h1>React Weather</h1>
+				<a href="https://github.com/mobot11/weather-challenge">GitHub</a>
 			</header>
 		);
 	}
