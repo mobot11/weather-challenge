@@ -1,0 +1,33 @@
+body {
+	background: linear-gradient(45deg, #392e6d, #2e3881);
+	color: #fff;
+}
+.main-header {
+  display: flex;
+  height: 60px;
+  padding-top: 30px;
+}
+
+.main-header h1 {
+  margin: auto;
+}
+
+.current-temp-container{
+	display: flex;
+}
+
+.current-temp {
+	margin: auto;
+	display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+.icon {
+	margin: auto;
+}
+
+.current-temp .icon i {
+	font-size: 100px;
+}
