@@ -14,7 +14,7 @@ export default class WeatherContainer extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { weeklyWeather: [] };
+        this.state = {};
     }
     /**
      * Call a function that sets state after
@@ -53,7 +53,7 @@ export default class WeatherContainer extends Component {
         console.log(53, currentWeather);
 
         return (
-            <div className='current-temp-container'>
+            <div className="current-temp-container">
                 <CurrentDay currentTemp={currentWeather} />
             </div>
         );
@@ -75,13 +75,10 @@ export default class WeatherContainer extends Component {
      * @return {JSX} the body of the weather application
      */
     render() {
-        if (!this.state.weeklyWeather) {
-            return;
-        }
-
         return (
             <div>
                 {this.currentTemp()}
+                {this.dailyTemps()}
             </div>
         );
     }

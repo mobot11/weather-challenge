@@ -3,6 +3,18 @@ body {
     color: #fff;
 }
 
+#app {
+	padding: 0 80px;
+}
+
+a {
+	color: #bea187;
+}
+
+a:hover {
+	color: #fff;
+}
+
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -11,13 +23,16 @@ body {
 
 .main-header h1 {
     margin: auto;
+    padding-left: 45px;
 }
 
-.current-temp-container {
+.current-temp-container, .daily-temp-container {
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.current-temp {
+.current-temp, .daily-temp {
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -27,8 +42,13 @@ body {
     margin-top: 80px;
 }
 
+.daily-temp {
+    max-width: 225px;
+}
+
 .icon {
     margin: auto;
+    padding: 10px 0;
 }
 
 .current-temp .icon i {
