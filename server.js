@@ -1,5 +1,5 @@
 const express = require('express');
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const axios = require('axios');
 const config = require('./app/config/config.js');
 
