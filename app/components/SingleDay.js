@@ -31,7 +31,7 @@ const SingleDay = ({ dailyTemps }) => {
 
         // Return a container for each day.
         return (
-            <div key={key}>
+            <div className="daily-temp-single" key={key}>
                 <div className={`daily-temp ${icon}`}>
                     <h3>Day {++key}</h3>
                     <div className="icon daily-icon">

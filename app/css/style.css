@@ -126,12 +126,6 @@ a:hover {
  * 5. Daily / Weekly Temp styles
  */
 
-@media screen and (max-width: 1240px) {
-    .daily-temp-container {
-        justify-content: flex-start;
-    }
-}
-
 .weekly-summary-container {
     display: flex;
     flex-direction: column;
@@ -152,12 +146,16 @@ a:hover {
     margin: 5px 0;
 }
 
+.daily-temp-single {
+    margin-left: 0;
+}
+
 .daily-temp {
     max-width: 225px;
     height: 325px;
     overflow-y: hidden;
     font-size: 16px;
-    margin: 10px 5px 0 0;
+    margin: 10px 15px 20px 0;
 }
 
 .daily-temp div {
