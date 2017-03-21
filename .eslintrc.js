@@ -6,7 +6,7 @@ module.exports = {
             jsx: true,
         },
     },
-    extends: 'google',
+    extends: ['google', "plugin:react/recommended"],
     rules: {
     	"object-curly-spacing": [2, "always"],
         "arrow-parens": [2, "as-needed"],
@@ -15,7 +15,7 @@ module.exports = {
             "FunctionDeclaration": false,
             "MethodDefinition": false,
             "ClassDeclaration": false
-        }
+        },
     }]
     }
 };

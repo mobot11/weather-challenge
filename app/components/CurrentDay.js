@@ -2,7 +2,11 @@ import React from 'react';
 import icons from '../config/icons';
 import { getIcon, getPercentage } from '../utils/helperFunctions';
 
-// A stateless component to display a list of urls
+/**
+ * A component that displays information about the current day's weather.
+ * @param  {Object} currentTemp The current days weather info from our API call.
+ * @return {JSX}    A JSX component that renders the current day's weather info.
+ */
 const CurrentDay = ({ currentTemp }) => {
     const summary = currentTemp.summary;
     const icon = currentTemp.icon;

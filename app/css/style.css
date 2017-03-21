@@ -68,7 +68,7 @@ a:hover {
 }
 
 @media screen and (max-width: 500px) {
-    .main-header, .current-temp-container {
+    .main-header {
         padding: 0 5px;
     }
 }

@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+/**
+ * Render the footer component.
+ * Just arbitrary HTML really.
+ */
 export default class Footer extends Component {
     render() {
         return (

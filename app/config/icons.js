@@ -1,3 +1,8 @@
+/**
+ * A map of icon values given to us by the api and
+ * their CSS counterparts
+ * @type {Object}
+ */
 const icons = {
     'clear-day': 'wi-day-sunny',
     'clear-night': 'wi-night-clear',

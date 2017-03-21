@@ -34,7 +34,7 @@ export default class WeatherContainer extends Component {
      */
     getWeather() {
         // const apiKey = config.apiKey;
-        const reqUrl = `/yolo`;
+        const reqUrl = `/data`;
         axios
             .get(reqUrl)
             .then(response => {
@@ -48,11 +48,16 @@ export default class WeatherContainer extends Component {
                 console.log(error);
             });
     }
-
-    componentDidUpdate() {
-        console.log(this.state);
-    }
-
+    /**
+     * Uncomment to see when state is updating for debugging.
+     */
+    // componentDidUpdate() {
+    //     console.log(this.state);
+    // }
+    /**
+     * A method that returns our current weather component.
+     * @return {JSX} Current Day Component
+     */
     currentTemp() {
         const currentWeather = this.state.currentWeather;
         if (!currentWeather) return;
@@ -64,6 +69,11 @@ export default class WeatherContainer extends Component {
         );
     }
 
+    /**
+     * Returns a JSX component with data about the five day forecast.
+     * @return {JSX} A container with daily weather information
+     * @todo refactor method names as they aren't very good.
+     */
     dailyTemps() {
         const weeklyWeather = this.state.weeklyWeather;
 
@@ -76,12 +86,18 @@ export default class WeatherContainer extends Component {
         );
     }
 
+    /**
+     * Method that returns a spark chart of high temp data.
+     * @return {JSX} Spark chart component with high temps.
+     */
     highTempChart() {
         const weeklyWeather = this.state.weeklyWeather;
 
         if (!weeklyWeather) return;
 
-        let data = getTemperatureArray(weeklyWeather.data);
+        let data = getTemperatureArray(weeklyWeather.data, 'high');
+
+        console.log(data);
 
         return (
             <Chart
@@ -93,6 +109,10 @@ export default class WeatherContainer extends Component {
         );
     }
 
+    /**
+     * Method that returns a spark chart of low temp data.
+     * @return {JSX} Spark chart component with low temps.
+     */
     lowTempChart() {
         const weeklyWeather = this.state.weeklyWeather;
 
@@ -100,16 +120,22 @@ export default class WeatherContainer extends Component {
 
         let data = getTemperatureArray(weeklyWeather.data, 'low');
 
+        console.log(data);
+
         return (
             <Chart
                 data={data}
                 units="°F"
                 value="Low Temperature"
-                color="blue"
+                color="#3E80ED"
             />
         );
     }
 
+    /**
+     * Method that returns a spark chart of humidity data.
+     * @return {JSX} Humidity spark chart.
+     */
     humidityChart() {
         const weeklyWeather = this.state.weeklyWeather;
 
@@ -117,16 +143,16 @@ export default class WeatherContainer extends Component {
 
         let data = getHumidityArray(weeklyWeather.data);
 
-        return (
-            <Chart
-                data={data}
-                units="%"
-                value="Humidity"
-                color="violet"
-            />
-        );
+        return <Chart data={data} units="%" value="Humidity" color="violet" />;
     }
 
+    /**
+     * Get our global footer component
+     * @return {JSX} footer component
+     *
+     * it is returned here because we don't want it loading
+     * until the rest of the page data has loaded.
+     */
     getFooter() {
         const weeklyWeather = this.state.weeklyWeather;
         if (!weeklyWeather) return;
