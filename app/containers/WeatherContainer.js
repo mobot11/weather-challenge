@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import SingleDay from '../components/SingleDay';
 import CurrentDay from '../components/CurrentDay';
+import Footer from '../components/Footer';
 
 /**
  *A container component to render the body of our weather application
@@ -70,6 +71,19 @@ export default class WeatherContainer extends Component {
             </div>
         );
     }
+
+    weatherList() {
+        const weeklyWeather = this.state.weeklyWeather;
+
+        if (!weeklyWeather) return;
+    }
+
+    getFooter() {
+        const weeklyWeather = this.state.weeklyWeather;
+        if (!weeklyWeather) return;
+
+        return <Footer />;
+    }
     /**
      * Render weather UI
      * @return {JSX} the body of the weather application
@@ -79,6 +93,7 @@ export default class WeatherContainer extends Component {
             <div>
                 {this.currentTemp()}
                 {this.dailyTemps()}
+                {this.getFooter()}
             </div>
         );
     }

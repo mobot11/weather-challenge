@@ -12,18 +12,22 @@ const CurrentDay = ({ currentTemp }) => {
     let humidity = currentTemp.humidity;
 
     humidity = getPercentage(humidity);
-    console.log(getIcon)
     const iconCSS = getIcon(icon, icons);
 
     return (
-        <div className="current-temp">
+        <div className={`current-temp ${icon}`}>
             <h3>Current Weather</h3>
-            <div className='icon current-icon'><i className={`wi ${iconCSS}`} /></div>
-            <div>Weather: {summary}</div>
-            <div>Current Temp: {temp}&deg;</div>
-            <div>Feels like: {`${apparentTemp}`}&deg;</div>
-            <div>Humidity: {humidity}&#37;</div>
-
+            <div className="current-temp-body">
+                <div className="icon current-icon">
+                    <i className={`wi ${iconCSS}`} />
+                </div>
+                <div className="current-temp-data">
+                    <div>Weather: {summary}</div>
+                    <div>Current Temp: {temp}°</div>
+                    <div>Feels like: {`${apparentTemp}`}°</div>
+                    <div>Humidity: {humidity}%</div>
+                </div>
+            </div>
         </div>
     );
 };
