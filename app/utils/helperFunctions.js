@@ -8,6 +8,26 @@ export const getIcon = (icon, iconObject) => {
     return iconCss;
 };
 
-export const getPercentage = (num) => {
+export const getPercentage = num => {
     return num * 100;
+};
+
+export const getTemperatureArray = (array, val = 'high') => {
+	let fiveDay = array.slice(1, 6);
+    if ((val = 'low')) {
+        return fiveDay.map(weatherObj => {
+            return weatherObj['temperatureMin'];
+        });
+    } else {
+        return fiveDay.map(weatherObj => {
+            return weatherObj['temperatureMax'];
+        });
+    }
+};
+
+export const getHumidityArray = array => {
+	let fiveDay = array.slice(1, 6);
+    return fiveDay.map(weatherObj => {
+        return getPercentage(weatherObj.humidity);
+    });
 };

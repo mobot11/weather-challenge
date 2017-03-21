@@ -1,3 +1,16 @@
+/**
+ * 1. Globals
+ * 2. Shared Styles
+ * 3. Header Styles
+ * 4. Current Temp styles
+ * 5. Daily / Weekly Temp styles
+ * 6. Chart styles
+ * 7. Footer styles
+ */
+
+/**
+ * 1. Globals
+ */
 body {
     background: linear-gradient(45deg, #392e6d, #2e3881);
     color: #fff;
@@ -10,12 +23,7 @@ a {
 
 a:hover {
     color: #fff;
-}
-
-.main-header,
-.current-temp-container,
-.main-footer {
-    padding: 0 80px;
+    text-decoration: none;
 }
 
 .icon {
@@ -24,24 +32,21 @@ a:hover {
     font-size: 100px;
 }
 
+/**
+ * 2. Shared styles
+ */
+
+.main-header,
+.current-temp-container,
+.main-footer {
+    padding: 0 80px;
+}
+
 .main-header,
 .main-footer {
     display: flex;
     justify-content: space-between;
     padding-top: 30px;
-}
-
-.main-footer {
-    max-height: 80px;
-}
-
-.main-footer img {
-    margin: auto;
-}
-
-.main-header h1 {
-    margin: auto;
-    padding-left: 45px;
 }
 
 .current-temp,
@@ -54,6 +59,39 @@ a:hover {
     border: 1px solid;
     margin-top: 50px;
 }
+
+.current-temp-container,
+.daily-temp-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 500px) {
+    .main-header, .current-temp-container {
+        padding: 0 5px;
+    }
+}
+
+/**
+ * 3. Header Styles
+ */
+
+.main-header a {
+    padding-top: 15px;
+    letter-spacing: 1px;
+}
+
+
+
+.main-header h1 {
+    margin: auto;
+    padding-left: 45px;
+}
+
+/**
+ * 4. Current Temp styles
+ */
 
 .current-temp {
     width: 500px;
@@ -84,12 +122,9 @@ a:hover {
     padding-right: 20px;
 }
 
-.current-temp-container,
-.daily-temp-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
+/**
+ * 5. Daily / Weekly Temp styles
+ */
 
 @media screen and (max-width: 1240px) {
     .daily-temp-container {
@@ -120,7 +155,7 @@ a:hover {
 .daily-temp {
     max-width: 225px;
     height: 325px;
-    overflow: scroll;
+    overflow-y: hidden;
     font-size: 16px;
     margin: 10px 5px 0 0;
 }
@@ -139,20 +174,47 @@ a:hover {
     }
 }
 
+/**
+ * 6. Chart styles
+ */
+.chart-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 40px;
+    flex-wrap: wrap;
+}
+
+.chart {
+    height: 225px;
+    width: 250px;
+}
+
+@media screen and (max-width: 525px) {
+    .chart-container {
+        padding: 0 80px;
+    }
+}
 
 /**
- * Gradient Colors
- * 'clear-day': 'wi-day-sunny',
-    'clear-night': 'wi-night-clear',
-    'rain': 'wi-rain',
-    'snow': 'wi-snow',
-    'sleet': 'wi-sleet',
-    'wind': 'wi-windy',
-    'fog': 'wi-fog',
-    'cloudy': 'wi-cloudy',
-    'partly-cloudy-day': 'wi-day-cloudy',
-    'partly-cloudy-night': 'wi-night-alt-cloudy',
-    'default': 'wi-thermometer',
+ * 7. Footer styles
+ */
+.main-footer {
+    max-height: 80px;
+}
+
+@media screen and (max-width: 500px) {
+    .main-footer {
+        padding: 0 5px;
+    }
+}
+
+.main-footer img {
+    margin: auto;
+}
+
+/**
+ * Weather Gradient Styles
  */
 
 .cloudy {
@@ -164,14 +226,15 @@ a:hover {
 }
 
 .clear-night {
-    background: linear-gradient(45deg, black , blue);
+    background: linear-gradient(45deg, black, blue);
 }
 
 .rain {
     background: linear-gradient(45deg, grey, #050F4F);
 }
 
-.snow, .sleet {
+.snow,
+.sleet {
     background: linear-gradient(45deg, grey, white);
 }
 

@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import SingleDay from '../components/SingleDay';
 import CurrentDay from '../components/CurrentDay';
+import Chart from '../components/Chart';
 import Footer from '../components/Footer';
+import {
+    getTemperatureArray,
+    getHumidityArray,
+} from '../utils/helperFunctions';
 
 /**
  *A container component to render the body of our weather application
@@ -51,7 +56,6 @@ export default class WeatherContainer extends Component {
     currentTemp() {
         const currentWeather = this.state.currentWeather;
         if (!currentWeather) return;
-        console.log(53, currentWeather);
 
         return (
             <div className="current-temp-container">
@@ -72,10 +76,55 @@ export default class WeatherContainer extends Component {
         );
     }
 
-    weatherList() {
+    highTempChart() {
         const weeklyWeather = this.state.weeklyWeather;
 
         if (!weeklyWeather) return;
+
+        let data = getTemperatureArray(weeklyWeather.data);
+
+        return (
+            <Chart
+                data={data}
+                units="°F"
+                value="High Temperature"
+                color="orange"
+            />
+        );
+    }
+
+    lowTempChart() {
+        const weeklyWeather = this.state.weeklyWeather;
+
+        if (!weeklyWeather) return;
+
+        let data = getTemperatureArray(weeklyWeather.data, 'low');
+
+        return (
+            <Chart
+                data={data}
+                units="°F"
+                value="Low Temperature"
+                color="blue"
+            />
+        );
+    }
+
+    humidityChart() {
+        const weeklyWeather = this.state.weeklyWeather;
+
+        if (!weeklyWeather) return;
+
+        let data = getHumidityArray(weeklyWeather.data);
+
+        return (
+            <Chart
+                data={data}
+                units="%"
+                value="Humidity"
+                color="violet"
+            />
+        );
     }
 
     getFooter() {
@@ -93,6 +142,11 @@ export default class WeatherContainer extends Component {
             <div>
                 {this.currentTemp()}
                 {this.dailyTemps()}
+                <div className="chart-container">
+                    {this.highTempChart()}
+                    {this.lowTempChart()}
+                    {this.humidityChart()}
+                </div>
                 {this.getFooter()}
             </div>
         );
