@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
 import SingleDay from '../components/SingleDay';
 import CurrentDay from '../components/CurrentDay';
 import Chart from '../components/Chart';
-import Input from '../components/Input';
+import SearchInput from '../components/SearchInput';
 import Footer from '../components/Footer';
-import {
-    getTemperatureArray,
-    getHumidityArray,
-} from '../utils/helperFunctions';
+import {getTemperatureArray, getHumidityArray} from '../utils/helperFunctions';
+
 import config from '../config/config';
 
 /**
@@ -25,6 +23,8 @@ export default class WeatherContainer extends Component {
         this.state = {
             longitude: config.longitude,
             latitude: config.latitude,
+            longError: false,
+            latError: false,
         };
     }
     /**
@@ -32,60 +32,61 @@ export default class WeatherContainer extends Component {
      * we know the component has mounted.
      */
     componentDidMount() {
-        this.getWeather('get');
+        let request = this.getWeather('get');
+
+        this.setWeather(request);
     }
     /**
      * An API call to Dark Sky that will set state in the application.
      */
     getWeather(method) {
         const reqUrl = `/data`;
+        let config = {};
         if (method === 'get') {
-            axios
-                .get(reqUrl)
-                .then(response => {
-                    this.setState({
-                        weeklyWeather: response.data.daily,
-                        currentWeather: response.data.currently,
-                    });
-                    console.log(response.data);
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+            config = {
+                method: 'get',
+                url: reqUrl,
+            };
         }
 
         if (method === 'post') {
             const longitude = this.state.longitude;
             const latitude = this.state.latitude;
-            const data = { longitude, latitude };
+            const data = {longitude, latitude};
 
-            const config = {
+            config = {
                 method: 'post',
                 url: reqUrl,
                 data,
             };
+        }
 
-            const request = axios(config);
-            request
-                .then(response => {
+        const request = axios(config);
+        return request;
+    }
+
+    setWeather(request) {
+        request
+            .then(response => {
+                if (response.status === 200) {
+                    console.log(response);
                     this.setState({
                         weeklyWeather: response.data.daily,
                         currentWeather: response.data.currently,
                     });
-                    console.log(response);
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        }
+                } else {
+                    const message = 'There has been an error, please refresh';
+                    alert(message);
+                }
+            })
+            .catch(error => console.log(error));
     }
-
     /**
      * Uncomment to see when state is updating for debugging.
      */
-    // componentDidUpdate() {
-    //     console.log(this.state);
-    // }
+    componentDidUpdate() {
+        console.log(this.state);
+    }
     /**
      * A method that returns our current weather component.
      * @return {JSX} Current Day Component
@@ -180,29 +181,22 @@ export default class WeatherContainer extends Component {
         if (!weeklyWeather) return;
 
         return (
-            <form
-                onSubmit={this.onFormSubmit.bind(this)}
-                action=""
-                className="input-group"
-            >
-                <input
-                    placeholder="Enter a longitude"
-                    className="form-control"
-                    defaultValue={this.state.longitude}
-                    onChange={this.onLongitudeChange.bind(this)}
+            <div className="coordinate-submit-form">
+                <p>
+                    Enter the longitude and latitude of your favorite location!
+                </p>
+                <SearchInput
+                    longError={this.state.longError}
+                    latError={this.state.latError}
+                    onFormSubmit={this.onFormSubmit.bind(this)}
+                    onLongitudeChange={this.onLongitudeChange.bind(this)}
+                    onLatitudeChange={this.onLatitudeChange.bind(this)}
+                    longitude={this.state.longitude}
+                    latitude={this.state.latitude}
+                    longPlaceholder="Enter a Longiude"
+                    latPlaceholder="enter a latitude"
                 />
-                <input
-                    placeholder="Enter a longitude"
-                    className="form-control"
-                    defaultValue={this.state.latitude}
-                    onChange={this.onLatitudeChange.bind(this)}
-                />
-                <span className="input-group-btn">
-                    <button type="submit" className="btn btn-secondary">
-                        Submit
-                    </button>
-                </span>
-            </form>
+            </div>
         );
     }
     onLongitudeChange(e) {
@@ -219,7 +213,43 @@ export default class WeatherContainer extends Component {
 
     onFormSubmit(e) {
         e.preventDefault();
-        this.getWeather('post');
+        let longitude = this.state.longitude;
+        let latitude = this.state.latitude;
+        let error = false;
+
+        longitude = parseInt(longitude);
+        latitude = parseInt(latitude);
+
+        console.log(longitude, latitude);
+
+        if (longitude <= 90 && longitude >= -90) {
+            this.setState({
+                longError: false,
+            });
+        } else {
+            error = true;
+            this.setState({
+                longError: true,
+            });
+        }
+
+        if (latitude <= 180 && latitude >= -180) {
+            this.setState({
+                latError: false,
+            });
+        } else {
+            error = true;
+            this.setState({
+                latError: true,
+            });
+        }
+
+        if (error === true) {
+            return;
+        }
+
+        let request = this.getWeather('post');
+        this.setWeather(request);
     }
 
     /**

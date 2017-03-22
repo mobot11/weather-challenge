@@ -15,6 +15,13 @@ body {
     background: linear-gradient(45deg, #392e6d, #2e3881);
     color: #fff;
     padding-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: .5px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
 }
 
 a {
@@ -30,6 +37,10 @@ a:hover {
     margin: 0 auto;
     padding: 10px 0;
     font-size: 100px;
+}
+
+p {
+    font-size: 16px;
 }
 
 /**
@@ -194,6 +205,16 @@ a:hover {
     }
 }
 
+.btn.btn-primary {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.coordinate-submit-form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
 /**
  * 7. Footer styles
  */
@@ -216,11 +237,11 @@ a:hover {
  */
 
 .cloudy {
-    background: linear-gradient(45deg, #000, #82807F);
+    background: linear-gradient(0deg,#434555,#82807f);
 }
 
 .clear-day {
-    background: linear-gradient(45deg, #0977A7, #A8D2DF);
+    background: linear-gradient(0deg, #0977A7, #A8D2DF);
 }
 
 .clear-night {
@@ -228,12 +249,12 @@ a:hover {
 }
 
 .rain {
-    background: linear-gradient(45deg, grey, #050F4F);
+        background: linear-gradient(0deg,grey,#050f4f)
 }
 
 .snow,
 .sleet {
-    background: linear-gradient(45deg, grey, white);
+    background: linear-gradient(0deg, grey, lightgrey);
 }
 
 .wind {
@@ -245,11 +266,11 @@ a:hover {
 }
 
 .partly-cloudy-day {
-    background: linear-gradient(45deg, #D9D0C1, #82807F);
+    background: linear-gradient(0deg, #0977A7, #82807F);
 }
 
 .partly-cloudy-night {
-    background: linear-gradient(45deg, #000, #82807F);
+    background: linear-gradient(0deg, #000, #82807F);
 }
 
 .default {
