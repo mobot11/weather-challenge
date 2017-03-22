@@ -27,14 +27,14 @@ const SearchInput = ({
             <input
                 type="number"
                 step="any"
-                placeholder="Enter a Longitude"
+                placeholder={longPlaceholder}
                 className="form-control"
                 onChange={onLongitudeChange}
             />
             <input
                 type="number"
                 step="any"
-                placeholder="Enter a latitude"
+                placeholder={latPlaceholder}
                 className="form-control"
                 onChange={onLatitudeChange}
             />

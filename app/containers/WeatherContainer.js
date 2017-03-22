@@ -193,8 +193,8 @@ export default class WeatherContainer extends Component {
                     onLatitudeChange={this.onLatitudeChange.bind(this)}
                     longitude={this.state.longitude}
                     latitude={this.state.latitude}
-                    longPlaceholder="Enter a Longiude"
-                    latPlaceholder="enter a latitude"
+                    longPlaceholder="Enter a Longiude (between -90 and 90)"
+                    latPlaceholder="enter a latitude (between -180 and 180)"
                 />
             </div>
         );
