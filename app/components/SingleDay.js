@@ -1,6 +1,6 @@
 import React from 'react';
 import icons from '../config/icons';
-import { getIcon, getPercentage } from '../utils/helperFunctions.js';
+import {getIcon, getPercentage} from '../utils/helperFunctions.js';
 
 /**
  * Renders a container that holds all of the weather data about
@@ -9,7 +9,7 @@ import { getIcon, getPercentage } from '../utils/helperFunctions.js';
  * to output five days of weather information.
  * @return {JSX} our five days of weather data to display in a JSX component.
  */
-const SingleDay = ({ dailyTemps }) => {
+const SingleDay = ({dailyTemps}) => {
     // This info lies on the outer daily object and must be grabbed now.
     const weeklySummary = dailyTemps.summary;
 
@@ -54,8 +54,10 @@ const SingleDay = ({ dailyTemps }) => {
                     <div>{weeklySummary}</div>
                 </div>
             </div>
-            <div className="daily-temp-container">
-                {tempList}
+            <div className="daily-temp-flex">
+                <div className="daily-temp-container">
+                    {tempList}
+                </div>
             </div>
         </div>
     );
