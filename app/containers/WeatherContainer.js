@@ -25,6 +25,7 @@ export default class WeatherContainer extends Component {
             latitude: config.latitude,
             longError: false,
             latError: false,
+            location: 'Seattle',
         };
     }
     /**
@@ -37,7 +38,10 @@ export default class WeatherContainer extends Component {
         this.setWeather(request);
     }
     /**
-     * An API call to Dark Sky that will set state in the application.
+     * An API Request to the backend to get 
+     * weather data
+     * @param  {string}  method is this a post or get request?
+     * @return {promise} request a Thenable promice
      */
     getWeather(method) {
         const reqUrl = `/data`;
@@ -65,6 +69,11 @@ export default class WeatherContainer extends Component {
         return request;
     }
 
+    /**
+     * Set state of the application.
+     * @param {Promise} request The Result of the API
+     * call made to the backend
+     */
     setWeather(request) {
         request
             .then(response => {
@@ -96,7 +105,7 @@ export default class WeatherContainer extends Component {
 
         return (
             <div className="current-temp-container">
-                <CurrentDay currentTemp={currentWeather} />
+                <CurrentDay currentTemp={currentWeather} location={this.state.location} />
             </div>
         );
     }
@@ -174,6 +183,12 @@ export default class WeatherContainer extends Component {
         return <Chart data={data} units="%" value="Humidity" color="violet" />;
     }
 
+    /**
+     * An input form to input custom longitude and
+     * laditudes per user input
+     * @return {JSX} SearchInput a form to input
+     * longitude and latitude
+     */
     getInputForm() {
         const weeklyWeather = this.state.weeklyWeather;
 
@@ -198,22 +213,38 @@ export default class WeatherContainer extends Component {
             </div>
         );
     }
+    /**
+     * Sets updated longitude on change.
+     * @param  {object} e event triggered.
+     */
     onLongitudeChange(e) {
         this.setState({
             longitude: e.target.value,
         });
     }
-
+    /**
+     * Sets updated latitude on change.
+     * @param  {object} e event triggered
+     * 
+     */
     onLatitudeChange(e) {
         this.setState({
             latitude: e.target.value,
         });
     }
 
+    /**
+     * Validate longitude and latitude,
+     * then make API call and update state.
+     * @param  {object} e when the form is submitted
+     */
     onFormSubmit(e) {
         e.preventDefault();
         let longitude = this.state.longitude;
         let latitude = this.state.latitude;
+        const deg = String.fromCharCode(176);
+        const location = `${longitude + deg} Long, ${latitude + deg} Lat`;
+
         let error = false;
 
         longitude = parseInt(longitude);
@@ -245,6 +276,7 @@ export default class WeatherContainer extends Component {
             return;
         }
 
+        this.setState({ location: location });
         let request = this.getWeather('post');
         this.setWeather(request);
     }

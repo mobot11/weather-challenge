@@ -7,7 +7,7 @@ import { getIcon, getPercentage } from '../utils/helperFunctions';
  * @param  {Object} currentTemp The current days weather info from our API call.
  * @return {JSX}    A JSX component that renders the current day's weather info.
  */
-const CurrentDay = ({ currentTemp }) => {
+const CurrentDay = ({ location, currentTemp }) => {
     const summary = currentTemp.summary;
     const icon = currentTemp.icon;
     const temp = currentTemp.temperature;
@@ -20,7 +20,7 @@ const CurrentDay = ({ currentTemp }) => {
 
     return (
         <div className={`current-temp ${icon}`}>
-            <h3>Current Weather</h3>
+            <h3>Current Weather: {location}</h3>
             <div className="current-temp-body">
                 <div className="icon current-icon">
                     <i className={`wi ${iconCSS}`} />

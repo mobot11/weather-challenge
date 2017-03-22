@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
 /**
- * A component that displays information about the current day's weather.
- * @param  {Object} currentTemp The current days weather info from our API call.
- * @return {JSX}    A JSX component that renders the current day's weather info.
+ * A component that allows a user to set own longitude and latitude values
+ * @param  {Object} props props passed down from parent component
+ * @return {JSX}    A JSX component that renders the form and input fields.
  */
 
 const SearchInput = ({
@@ -14,14 +14,9 @@ const SearchInput = ({
         longPlaceholder,
         latPlaceholder,
     }) => {
-    let longErrorMessage = '';
-    let latErrorMessage = '';
-    if (longError) {
-        longErrorMessage = <div>Please enter a valid longitude</div>;
-    }
-    if (latError) {
-        latErrorMessage = <div>Please enter a valid latitude</div>;
-    }
+    let longErrorMessage = <div>Please enter a valid longitude</div>;
+    let latErrorMessage = <div>Please enter a valid latitude</div>;
+
     const form = (
         <form onSubmit={onFormSubmit} action="#">
             <input
@@ -45,7 +40,7 @@ const SearchInput = ({
             </span>
         </form>
     );
-    if (longErrorMessage && latErrorMessage) {
+    if (longError && latError) {
         return (
             <div>
                 {longErrorMessage}
@@ -54,7 +49,7 @@ const SearchInput = ({
             </div>
         );
     }
-    if (latErrorMessage) {
+    if (latError) {
         return (
             <div>
                 {latErrorMessage}
@@ -62,7 +57,7 @@ const SearchInput = ({
             </div>
         );
     }
-    if (longErrorMessage) {
+    if (longError) {
         return (
             <div>
                 {longErrorMessage}
