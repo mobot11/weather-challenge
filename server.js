@@ -56,3 +56,5 @@ app.post('/data', (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`app is running on port ${PORT}`));
+
+module.exports = app;

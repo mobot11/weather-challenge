@@ -56,6 +56,7 @@ const SingleDay = ({ dailyTemps }) => {
             </div>
             <div className="daily-temp-container">
                 {tempList}
+                <div className="space-div"></div>
             </div>
         </div>
     );

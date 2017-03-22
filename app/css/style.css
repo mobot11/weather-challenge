@@ -177,6 +177,12 @@ p {
     font-size: 60px;
 }
 
+@media screen and (max-width: 1065px) {
+    .space-div {
+        flex-grow: .54;
+    }
+}
+
 @media screen and (max-width: 525px) {
     .daily-temp-container {
         padding: 0 80px;
