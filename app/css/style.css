@@ -166,7 +166,7 @@ p {
     height: 325px;
     overflow-y: hidden;
     font-size: 16px;
-    margin: 10px 15px 20px 0;
+    margin: 10px 0 20px 0;
 }
 
 .daily-temp div {
@@ -177,13 +177,13 @@ p {
     font-size: 60px;
 }
 
-@media screen and (max-width: 1065px) {
+/*@media screen and (max-width: 1065px) {
     .space-div {
         flex-grow: .54;
     }
-}
+}*/
 
-@media screen and (max-width: 525px) {
+@media screen and (max-width: 580px) {
     .daily-temp-container {
         padding: 0 80px;
     }
