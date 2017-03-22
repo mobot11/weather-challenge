@@ -27,8 +27,8 @@ const CurrentDay = ({ currentTemp }) => {
                 </div>
                 <div className="current-temp-data">
                     <div>Weather: {summary}</div>
-                    <div>Current Temp: {temp}°F</div>
-                    <div>Feels like: {`${apparentTemp}`}°F</div>
+                    <div>Current Temp: {temp}°</div>
+                    <div>Feels like: {`${apparentTemp}`}°</div>
                     <div>Humidity: {humidity}%</div>
                 </div>
             </div>

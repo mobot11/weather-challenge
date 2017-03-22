@@ -38,8 +38,8 @@ const SingleDay = ({dailyTemps}) => {
                         <i className={`wi ${iconCSS}`} />
                     </div>
                     <div>Weather: {summary}</div>
-                    <div>High: {high}°F</div>
-                    <div>Low: {`${low}`}°F</div>
+                    <div>High: {high}°</div>
+                    <div>Low: {`${low}`}°</div>
                     <div>Humidity: {humidity}%</div>
                 </div>
             </div>
