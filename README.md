@@ -1,6 +1,8 @@
 ## Synopsis
 
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+An application to get weather data by entering a longitude and latitude.
+
+The default weather is for seattle (longitude: 47.6062, latitude: -122.3321) but there is an option to enter your own custom longitude and latitude after scrolling to the bottom.
 
 ## Code Example
 

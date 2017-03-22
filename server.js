@@ -13,6 +13,7 @@ app.use(bodyparser.urlencoded({ extended: false }));
 // parse body of post with JSON
 app.use(bodyparser.json());
 
+// A GET Request to set initial data.
 app.get('/data', (req, res) => {
     const latitude = config.latitude;
     const longitude = config.longitude;
