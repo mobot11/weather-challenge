@@ -7,7 +7,7 @@ import {
 import _ from 'lodash';
 
 /**
- * Get teh average of our data set.
+ * Get the average of our data set.
  * @param  {array} data data we are passing the chart.
  * @return {num}   the average of the data set.
  */

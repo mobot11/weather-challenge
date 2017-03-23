@@ -42,7 +42,7 @@ The application can also be seen at https://react-weekly-weather.herokuapp.com/
 
 ## API Reference
 
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+https://darksky.net, https://facebook.github.io/react/, https://github.com/borisyankov/react-sparklines
 
 ## Tests
 
