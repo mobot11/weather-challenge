@@ -8,11 +8,13 @@ export default class Footer extends Component {
     render() {
         return (
             <footer className="main-footer">
+                <a href="https://darksky.net/dev/">
                 <img
                     src="images/poweredby-oneline-darkbackground.png"
-                    alt="Powred by Dark Sky API"
+                    alt="Powered by Dark Sky API"
                     width="300px"
                 />
+                </a>
             </footer>
         );
     }
