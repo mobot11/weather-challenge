@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack -p",
     "start": "node server.js",
-    "test-server": "mocha serverTests.js",
+    "test-server": "mocha test/serverTests.js",
     "test-ui": "NODE_ENV=test mocha --compilers js:babel-core/register --require test/index.js \"./test/*.test.js\""
   },
   "author": "Dylan Moberg",

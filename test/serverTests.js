@@ -9,6 +9,7 @@ describe('get index', () => {
     describe('GET index', () => {
         it('should return data from darksky', done => {
             chai.request(server).get('/data').end((err, res) => {
+
                 expect(res).to.have.status(200);
 
                 expect(res).to.be.an('object');

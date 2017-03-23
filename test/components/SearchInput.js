@@ -83,4 +83,4 @@ SearchInput.propTypes = {
     error: PropTypes.bool,
 };
 
-export default SearchInput;
+module.exports = SearchInput;

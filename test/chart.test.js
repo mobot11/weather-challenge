@@ -13,11 +13,18 @@ describe('Chart', () => {
 
         expect(wrapper.find('.chart')).to.have.length(1);
     });
-    it('should render one Chart component', () => {
+    it('should render one Chart SVG', () => {
         const wrapper = mount(
             <Chart data={data} units="%" value="Humidity" color="violet" />
         );
 
         expect(wrapper.find('svg')).to.have.length(1);
+    });
+    it('should render one Sparkline component', () => {
+        const wrapper = mount(
+            <Chart data={data} units="%" value="Humidity" color="violet" />
+        );
+
+        expect(wrapper.find('Sparklines')).to.have.length(1);
     });
 });

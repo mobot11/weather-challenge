@@ -1,6 +1,5 @@
 import React from 'react';
-import icons from '../config/icons';
-import {getIcon, getPercentage} from '../utils/helperFunctions.js';
+
 
 /**
  * Renders a container that holds all of the weather data about
@@ -15,7 +14,7 @@ const SingleDay = ({dailyTemps}) => {
 
     const tempArray = dailyTemps.data;
     // We only want five days of data, not eight.
-    const fiveDayTemps = tempArray.slice(1, 6);
+    const fiveDayTemps = tempArray;
 
     // For each peice of data in our dataset, create a container
     // with the following information
@@ -26,8 +25,8 @@ const SingleDay = ({dailyTemps}) => {
         let icon = singleDay.icon;
         let humidity = singleDay.humidity;
 
-        humidity = getPercentage(humidity);
-        const iconCSS = getIcon(icon, icons);
+        humidity = humidity;
+        const iconCSS = icon;
 
         // Return a container for each day.
         return (
@@ -63,4 +62,4 @@ const SingleDay = ({dailyTemps}) => {
     );
 };
 
-export default SingleDay;
+module.exports = SingleDay;

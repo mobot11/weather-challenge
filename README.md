@@ -43,7 +43,9 @@ Depending on the size of the project, if it is small and simple enough the refer
 
 ## Tests
 
-@TODO add tests.
+Test server API calls: `npm run test-server`
+
+Test UI components: `npm run test-ui`
 
 ## Contributors
 
