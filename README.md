@@ -24,7 +24,9 @@ The application proxies all AJAX requests through an Express server to avoid Cro
 
 I used spark charts to build small charts that allow a user to visualize the high temp, low temp and humidity for the next five days and displays the average of these values below their respective charts.
 
-I used flexbox to display elements because of its ease of use. If this was a production project, I would add vendor prefixes or refactor if I had to support browsers that do not have full flexblox support
+I used flexbox to display elements because of its ease of use. If this was a production project, I would add vendor prefixes or refactor if I had to support browsers that do not have full flexblox support.
+
+I used Mocha, Chai and Air BnB's Enzyme testing framework to test my UI components, Mocha Chai and Chai-http to test my server.
 
 
 
