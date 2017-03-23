@@ -34,6 +34,7 @@ I used flexbox to display elements because of its ease of use. If this was a pro
 2) run `npm install`
 3) run `npm run build`
 4) run `npm start`
+5) go to http://localhost:5000/
 
 The application can also be seen at https://react-weekly-weather.herokuapp.com/
 
