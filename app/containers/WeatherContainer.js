@@ -105,7 +105,10 @@ export default class WeatherContainer extends Component {
 
         return (
             <div className="current-temp-container">
-                <CurrentDay currentTemp={currentWeather} location={this.state.location} />
+                <CurrentDay
+                    currentTemp={currentWeather}
+                    location={this.state.location}
+                />
             </div>
         );
     }

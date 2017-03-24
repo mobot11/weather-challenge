@@ -25,7 +25,7 @@ export const getIcon = (icon, iconObject) => {
  * @return {num}     value * 100
  */
 export const getPercentage = num => {
-    return num * 100;
+    return Math.round(num * 100);
 };
 
 /**
@@ -52,7 +52,7 @@ export const getTemperatureArray = (array, val) => {
 };
 
 /**
- * Getn an array of humidity values from 
+ * Getn an array of humidity values from
  * an array of objects
  * @param  {[type]} array array of daily weather objects
  * @return {[type]} array array of humidity data.
